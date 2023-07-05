@@ -2,37 +2,49 @@
 
 <div class="card">
 	<div class="card-body">
-		<h5 class="card-title fw-semibold mb-4 text-center text-primary">PRODUCT MASTER</h5>
+		<h5 class="card-title fw-semibold mb-4 text-center text-primary">CLIENT MASTER</h5>
 		<hr>
 
 
 		<form action="" method="POST" enctype="multipart/form-data">
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Product Name</label>
-				<input type="text" class="form-control" name="productname" id="productName">
+				<label for="exampleInputEmail1" class="form-label">Client Name</label>
+				<input type="text" class="form-control" name="clientname" id="clientname">
 
 			</div>
 			<div class="mb-3 ">
-				<label for="exampleInputEmail1" class="form-label">Brand Name</label>
-				<input type="text" class="form-control" name="" id="brandname">
+				<label for="exampleInputEmail1" class="form-label">GSTIN</label>
+				<input type="text" class="form-control" name="" id="gstin">
 
 			</div>
 			<div class="mb-3">
-				<label class="form-label">Opening Stock</label>
-				<input type="number" class="form-control" name="" id="openingstock">
+				<label class="form-label">Address</label>
+				<input type="text" class="form-control" name="" id="address">
 
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Available Stock</label>
-				<input type="number" class="form-control" placeholder="" id="availablestock">
+				<label class="form-label">Email</label>
+				<input type="email" class="form-control" placeholder="" id="email">
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Purchase Rate</label>
-				<input type="number" class="form-control" placeholder="" id="purchaserate">
+				<label class="form-label">Contact</label>
+				<input type="number" class="form-control" placeholder="" id="contact">
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Sales Rate</label>
-				<input type="number" class="form-control" placeholder="" name="" id="salesrate">
+				<label class="form-label">Opening Outstanding </label>
+				<input type="number" class="form-control" placeholder="" name="" id="openingoutstanding">
+			</div>
+			<div class="mb-3 ">
+				<label class="form-label">Outstanding </label>
+				<input type="number" class="form-control" placeholder="" name="" id="outstanding">
+			</div>
+			<div class="mb-3 ">
+				<label class="form-label">Client Type </label>
+				<input type="number" class="form-control" placeholder="" name="" id="clienttype">
+			</div>
+			<div class="mb-3 ">
+				<label class="form-label">Status </label>
+				<input type="text" class="form-control" placeholder="" name="" id="status">
 			</div>
 
 			<!-- <input class="btn btn-primary" name="upload" type="button" id="add" value="Add" ="additem()"></input> -->
@@ -113,7 +125,7 @@
 				},
 			});
 		}
-	}
+    }
 
 		function message() {
 			Swal.fire(
