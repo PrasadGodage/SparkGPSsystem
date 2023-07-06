@@ -31,19 +31,19 @@
 				<input type="number" class="form-control" placeholder="" id="contact">
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Opening Outstanding </label>
+				<label class="form-label">Opening Outstanding</label>
 				<input type="number" class="form-control" placeholder="" name="" id="openingoutstanding">
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Outstanding </label>
+				<label class="form-label">Outstanding</label>
 				<input type="number" class="form-control" placeholder="" name="" id="outstanding">
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Client Type </label>
+				<label class="form-label">Client Type</label>
 				<input type="number" class="form-control" placeholder="" name="" id="clienttype">
 			</div>
 			<div class="mb-3 ">
-				<label class="form-label">Status </label>
+				<label class="form-label">Status</label>
 				<input type="text" class="form-control" placeholder="" name="" id="status">
 			</div>
 
@@ -127,16 +127,13 @@
 		}
     }
 
-		function message() {
-			Swal.fire(
+
+		
+		Swal.fire(
 				'Good job!',
 				'You clicked the button!',
 				'success'
 				)
-		}
-
-		
-
 
 		// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
 		
