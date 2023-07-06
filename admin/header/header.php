@@ -36,7 +36,7 @@ include 'config.php';
       content= "device-width", initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale="1.0"
     />
 
-    <title>SKS Web App Admin</title>
+    <title>SPARKS Web Admin</title>
 
     <meta name="description" content="" />
 
@@ -119,40 +119,64 @@ include 'config.php';
 
             <!-- Extended components -->
             <li class="menu-item">
-              <a href="productMaster.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-cart"></i>
-                <div data-i18n="Extended UI">Product Master</div>
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Extended UI">Masters</div>
               </a>
-            </li>
+            
+            <ul class="menu-sub">
             <li class="menu-item">
               <a href="vendorMaster.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Extended UI">Vendor Master</div>
               </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="./add_Product.php" class="menu-link">
-                    <div data-i18n="Perfect Scrollbar">Add Products</div>
-                  </a>
-                  
-                </li>
-              </ul>
             </li>
             <li class="menu-item">
               <a href="clientMaster.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-group"></i>
                 <div data-i18n="Extended UI">Client Master</div>
               </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="./add_Product.php" class="menu-link">
-                    <div data-i18n="Perfect Scrollbar">Add Products</div>
-                  </a>
-                  
-                </li>
-              </ul>
             </li>
- </ul>
+            <li class="menu-item">
+              <a href="productMaster.php" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-cart"></i>
+                <div data-i18n="Extended UI">Product Master</div>
+              </a>
+            </li>
+            
+            
+            
+          </ul>
+        </li>
+            <li class="menu-item">
+              <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-user"></i>
+                <div data-i18n="Extended UI">Transactions</div>
+              </a>
+            
+            <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="vendorMaster.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-store"></i>
+                <div data-i18n="Extended UI">Sales</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="purchase.php" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-group"></i>
+                <div data-i18n="Extended UI">Purchase</div>
+              </a>
+            </li>          
+          </ul>
+        </li>
+        
+        <li class="menu-item">
+          <a href="javascript:void(0)" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-user"></i>
+            <div data-i18n="Extended UI">Stock</div>
+          </a>
+        </li>
+      </ul>
 
 
 

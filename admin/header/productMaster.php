@@ -6,7 +6,7 @@
 		<hr>
 
 
-		<form action="" method="POST" enctype="multipart/form-data">
+		<form action="" method="POST" enctype="multipart/form-data" id="myForm">
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Product Name</label>
 				<input type="text" class="form-control" name="productname" id="productName">
@@ -15,8 +15,8 @@
 			<div class="mb-3 ">
 				<label for="exampleInputEmail1" class="form-label">Brand Name</label>
 				<input type="text" class="form-control" name="" id="brandname">
-
 			</div>
+
 			<div class="mb-3">
 				<label class="form-label">Opening Stock</label>
 				<input type="number" class="form-control" name="" id="openingstock">
@@ -36,30 +36,33 @@
 			</div>
 
 			<!-- <input class="btn btn-primary" name="upload" type="button" id="add" value="Add" ="additem()"></input> -->
-			<button type="button" onclick="additem()" class="btn btn-primary" >Add</button>
+			<button type="button" onclick="additem(event)" class="btn btn-primary">Add</button>
 		</form>
 	</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+	$(document).ready(function() {
+		// alert('hii');
+	});
 
-	
-	function additem() {
+	function additem(event) {
+		event.preventDefault();
 		// var itemname = $('#iname').val();
 		// var itemCode = $('#icode').val();
 		// var itemhsn = $('#ihsncode').val();
-		// var itemUname = $('#UName').val();
+		// var itemUname = $('#UName').val();	
 		// var itemTaxId = $('#TaxGId').val();
 		// var itemPurRate = $('#PurRate').val();
 		// var itemSalesRate = $('#SalesRate').val();
-		var productName =  $('#productName').val(); 
-		var brandname =  $('#brandname').val(); 
-		var openingstock =  $('#openingstock').val(); 
-		var availablestock =  $('#availablestock').val(); 
-		var purchaserate =  $('#purchaserate').val(); 
-		var salesrate =  $('#salesrate').val(); 
-		
+		var productName = $('#productName').val();
+		var brandname = $('#brandname').val();
+		var openingstock = $('#openingstock').val();
+		var availablestock = $('#availablestock').val();
+		var purchaserate = $('#purchaserate').val();
+		var salesrate = $('#salesrate').val();
+
 
 		if (productName == "") {
 			alert('Please Enter Product Name');
@@ -79,53 +82,60 @@
 			// console.log("oo");
 
 			$.ajax({
-				url: "ajaxbackend.php",
-				type: "POST",
-				data: {
-					// data from file : data to file 
-					productName,
-					brandname,
-					openingstock,
-					availablestock,
-					purchaserate,
-					salesrate
-				},
-				success: function(data) {
-					console.log(data);
-					if (data == "Inserted") {
-						// $('#iname').val("");
-						// $('#icode').val("");
-						// $('#ihsncode').val("");
-						// $('#UName').val("0");
-						// $('#TaxGId').val("0");
-						// $('#PurRate').val("");
-						// $('#SalesRate').val("");
-						$('#productName').val(); 
-						$('#brandname').val(); 
-						$('#openingstock').val(); 
-						$('#availablestock').val(); 
-						$('#purchaserate').val(); 
-						$('#salesrate').val();
-						getrecord();
-						message();
+					url: "ajaxbackend.php",
+					type: "POST",
+					data: {
+						// data from file : data to file 
+						productName,
+						brandname,
+						openingstock,
+						availablestock,
+						purchaserate,
+						salesrate
+					},
+					success: function(data) {
+						console.log(data);
+						$('#myForm')[0].reset();
 
-					}
+						// Show SweetAlert notification
+						Swal.fire({
+							title: 'Success',
+							text: 'Data inserted successfully!',
+							icon: 'success'
+						});
+						// if (data == "Inserted") {
+						// 	// $('#iname').val("");
+						// 	// $('#icode').val("");
+						// 	// $('#ihsncode').val("");
+						// 	// $('#UName').val("0");
+						// 	// $('#TaxGId').val("0");
+						// 	// $('#PurRate').val("");
+						// 	// $('#SalesRate').val("");
+
+						// 	Swal.fire(
+						// 		'Good job!',
+						// 		'You clicked the button!',
+						// 		'success'
+						// 	
 				},
 			});
-		}
 	}
-
-		function message() {
-			Swal.fire(
-				'Good job!',
-				'You clicked the button!',
-				'success'
-				)
-		}
-
-		
+}
 
 
-		// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
 </script>

@@ -18,9 +18,9 @@ if (isset($_POST['productName'])) {
 }
 
 //insert Vender Master
-if (isset($_POST['vendername '])) {
+if (isset($_POST['vendername'])) {
 	
-	$insertitem = "INSERT INTO `vendermaster`(`vendername`, `gstin `, `address `, `email `, `contactfirm `, `contactsales`,`contacttechnical `) VALUES ('$vendername','$gstin','$address','$email','$contactfirm','$contactsales','$contacttechnical')";
+	$insertitem = "INSERT INTO `vendermaster`(`vendername`, `gstin `, `address`, `email`, `contactfirm`, `contactsales`,`contacttechnical `) VALUES ('$vendername','$gstin','$address','$email','$contactfirm','$contactsales','$contacttechnical')";
 	if (mysqli_query($con, $insertitem)) {
 		echo "Inserted"; {
 			echo "Error to Insert";
@@ -38,3 +38,13 @@ if (isset($_POST['vendername '])) {
 // 		}
 // 	}
 // }
+
+
+if (isset($_POST['productName'])) {
+	$insertitem = "INSERT INTO `purchasemaste` (`prdName`, `vendorName`,`purchaseDate` , `imeiNo`, `uidNo`, `sim1no`, `sim2no`) VALUES ('$productName','$vendorName','$imeiNumber','$serialNumber','$simno1', '$simno2')";
+	if (mysqli_query($con, $insertitem)) {
+		return "Inserted"; 
+	} else {
+		return "Error";
+	}
+}
