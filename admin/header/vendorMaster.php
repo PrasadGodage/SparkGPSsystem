@@ -47,24 +47,37 @@
 
 <script>
 	function additem() {
-		var itemname = $('#iname').val();
-		var itemCode = $('#icode').val();
-		var itemhsn = $('#ihsncode').val();
-		var itemUname = $('#UName').val();
-		var itemTaxId = $('#TaxGId').val();
-		var itemPurRate = $('#PurRate').val();
-		var itemSalesRate = $('#SalesRate').val();
+		// var itemname = $('#iname').val();
+		// var itemCode = $('#icode').val();
+		// var itemhsn = $('#ihsncode').val();
+		// var itemUname = $('#UName').val();
+		// var itemTaxId = $('#TaxGId').val();
+		// var itemPurRate = $('#PurRate').val();
+		// var itemSalesRate = $('#SalesRate').val();
 
-		if (itemname == "") {
-			alert('Please Enter Item Name');
-		} else if (itemUname == 0) {
+		var vendername = $('#vendername').val();
+		var gstin = $('#gstin').val();
+		var address = $('#address').val();
+		var email = $('#email').val();
+		var contactfirm = $('#contactfirm').val();
+		var contactsales = $('#contactsales').val();
+		var contacttechnical = $('#contacttechnical').val();
+		
+
+		if (vendername == "") {
+			alert('Please Enter Vender Name');
+		} else if (gstin == 0) {
 			alert('Please Select Unit From List');
-		} else if (itemTaxId == 0) {
-			alert('Please Select Tax From List');
-		} else if (itemPurRate == "") {
-			alert('Please Enter Purchase Rate');
-		} else if (itemSalesRate == "") {
-			alert('Please Enter Sales Rate');
+		} else if (address == 0) {
+			alert('Please Enter Address');
+		} else if (email == "") {
+			alert('Please Enter Email');
+		} else if (contactfirm == "") {
+			alert('Please Enter Contact Firm');
+		} else if (contactsales == "") {
+			alert('Please Enter Contact Sales');
+		} else if (contacttechnical == "") {
+			alert('Please Enter Contact Tachnical');
 		} else {
 
 
@@ -82,29 +95,51 @@
 					// itemTaxId: itemTaxId,
 					// itemPurRate: itemPurRate,
 					// itemSalesRate: itemSalesRate
+
+					vendername,
+					gstin,
+					address,
+					email,
+					contactfirm,
+					contactsales,
+					contacttechnical
+
 				},
 				success: function(data) {
 					console.log(data);
 					if (data == "Inserted") {
-						$('#iname').val("");
-						$('#icode').val("");
-						$('#ihsncode').val("");
-						$('#UName').val("0");
-						$('#TaxGId').val("0");
-						$('#PurRate').val("");
-						$('#SalesRate').val("");
+						// $('#iname').val("");
+						// $('#icode').val("");
+						// $('#ihsncode').val("");
+						// $('#UName').val("0");
+						// $('#TaxGId').val("0");
+						// $('#PurRate').val("");
+						// $('#SalesRate').val("");
+
+						$('#vendername').val("");
+						$('#gstin').val("");
+						$('#address').val("");
+						$('#email').val("0");
+						$('#contactfirm').val("0");
+						$('#contactsales').val("");
+						$('#contacttechnical').val("");
 						getrecord();
+						message();
 					}
 				},
 			});
-
-
-
-
-
 		}
 
 
 		// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
 	}
+
+	function message() {
+			Swal.fire(
+				'Good job!',
+				'You clicked the button!',
+				'success'
+				)
+		}
+		
 </script>
