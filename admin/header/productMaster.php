@@ -10,7 +10,6 @@
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Product Name</label>
 				<input type="text" class="form-control" name="productname" id="productName">
-
 			</div>
 			<div class="mb-3 ">
 				<label for="exampleInputEmail1" class="form-label">Brand Name</label>
@@ -103,39 +102,10 @@
 							text: 'Data inserted successfully!',
 							icon: 'success'
 						});
-						// if (data == "Inserted") {
-						// 	// $('#iname').val("");
-						// 	// $('#icode').val("");
-						// 	// $('#ihsncode').val("");
-						// 	// $('#UName').val("0");
-						// 	// $('#TaxGId').val("0");
-						// 	// $('#PurRate').val("");
-						// 	// $('#SalesRate').val("");
-
-						// 	Swal.fire(
-						// 		'Good job!',
-						// 		'You clicked the button!',
-						// 		'success'
-						// 	
 				},
 			});
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
 </script>

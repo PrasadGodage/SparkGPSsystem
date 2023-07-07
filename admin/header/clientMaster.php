@@ -20,20 +20,23 @@
 			<div class="mb-3">
 				<label class="form-label">Address</label>
 				<input type="text" class="form-control" name="" id="address">
-
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Email</label>
 				<input type="email" class="form-control" placeholder="" id="email">
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Contact</label>
 				<input type="number" class="form-control" placeholder="" id="contact">
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Opening Outstanding</label>
 				<input type="number" class="form-control" placeholder="" name="" id="openingoutstanding">
 			</div>
+			
 			<div class="mb-3 ">
 				<label class="form-label">Outstanding</label>
 				<input type="number" class="form-control" placeholder="" name="" id="outstanding">
@@ -126,14 +129,6 @@
 			});
 		}
     }
-
-
-		
-		Swal.fire(
-				'Good job!',
-				'You clicked the button!',
-				'success'
-				)
 
 		// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
 		

@@ -8,7 +8,7 @@ date_default_timezone_set("Asia/Calcutta");
 
 //insert Product Master
 if (isset($_POST['productName'])) {
-	
+
 	$insertitem = "INSERT INTO `productmaster`(`productname`, `brandname`, `openingstk`, `availablestk`, `purchaseRate`, `salesRate`) VALUES ('$productName','$brandname','$openingstock','$availablestock','$purchaserate','$salesrate')";
 	if (mysqli_query($con, $insertitem)) {
 		echo "Inserted"; {
@@ -19,7 +19,7 @@ if (isset($_POST['productName'])) {
 
 //insert Vender Master
 if (isset($_POST['vendername'])) {
-	
+
 	$insertitem = "INSERT INTO `vendermaster`(`vendername`, `gstin `, `address`, `email`, `contactfirm`, `contactsales`,`contacttechnical `) VALUES ('$vendername','$gstin','$address','$email','$contactfirm','$contactsales','$contacttechnical')";
 	if (mysqli_query($con, $insertitem)) {
 		echo "Inserted"; {
@@ -30,7 +30,7 @@ if (isset($_POST['vendername'])) {
 
 //insert Client Master
 // if (isset($_POST['productName'])) {
-	
+
 // 	$insertitem = "INSERT INTO `productmaster`(`productname`, `brandname`, `openingstk`, `availablestk`, `purchaseRate`, `salesRate`) VALUES ('$productName','$brandname','$openingstock','$availablestock','$purchaserate','$salesrate')";
 // 	if (mysqli_query($con, $insertitem)) {
 // 		echo "Inserted"; {
@@ -41,10 +41,12 @@ if (isset($_POST['vendername'])) {
 
 
 if (isset($_POST['productName'])) {
-	$insertitem = "INSERT INTO `purchasemaste` (`prdName`, `vendorName`,`purchaseDate` , `imeiNo`, `uidNo`, `sim1no`, `sim2no`) VALUES ('$productName','$vendorName','$imeiNumber','$serialNumber','$simno1', '$simno2')";
+
+	$date = date("Y-m-d");
+	$insertitem = "INSERT INTO `purchasemaster` (`prdName`, `vendorName`,`purchaseDate` , `imeiNo`, `uidNo`, `sim1no`, `sim2no`) VALUES ('$productName','$vendorName', '$date' ,'$imeiNumber','$serialNumber','$simno1', '$simno2')";
 	if (mysqli_query($con, $insertitem)) {
-		return "Inserted"; 
+		echo "Inserted";
 	} else {
-		return "Error";
+		echo "Error";
 	}
 }

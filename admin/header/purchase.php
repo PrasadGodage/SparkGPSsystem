@@ -24,8 +24,8 @@
 			<div class="mb-3">
 				<label class="form-label">Serial / CCID Number</label>
 				<input type="number" class="form-control" name="" id="serialNumber">
-
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Sim No - 1</label>
 				<input type="number" class="form-control" placeholder="" id="simno1">
@@ -115,15 +115,6 @@
 					// 		'success'
 					// 	
 				},
-				error: function() {
-					// Handle error if needed
-					Swal.fire({
-						title: 'Error',
-						text: 'Entry Error',
-						icon: 'Error'
-
-					});
-				}
 			});
 		}
 	}

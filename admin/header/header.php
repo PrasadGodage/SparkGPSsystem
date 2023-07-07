@@ -142,28 +142,25 @@ include 'config.php';
               <i class="menu-icon tf-icons bx bx-cart"></i>
                 <div data-i18n="Extended UI">Product Master</div>
               </a>
-            </li>
-            
-            
-            
+            </li>          
           </ul>
         </li>
             <li class="menu-item">
               <a href="javascript:void(0)" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-user"></i>
+                <i class="menu-icon tf-icons bx bx-transfer"></i>
                 <div data-i18n="Extended UI">Transactions</div>
               </a>
             
             <ul class="menu-sub">
             <li class="menu-item">
               <a href="vendorMaster.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-store"></i>
+                <i class="menu-icon tf-icons bx bx-line-chart"></i>
                 <div data-i18n="Extended UI">Sales</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="purchase.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-group"></i>
+                <i class="menu-icon tf-icons bx bx-sort-alt-2"></i>
                 <div data-i18n="Extended UI">Purchase</div>
               </a>
             </li>          
@@ -172,17 +169,12 @@ include 'config.php';
         
         <li class="menu-item">
           <a href="javascript:void(0)" class="menu-link">
-            <i class="menu-icon tf-icons bx bx-user"></i>
+            <i class="menu-icon tf-icons bx bx-coin-stack"></i>
             <div data-i18n="Extended UI">Stock</div>
           </a>
         </li>
       </ul>
-
-
-
-	</aside>
-           
-           
+</aside> 
         <!-- / Menu -->
   	
         <!-- Layout container -->
@@ -275,16 +267,6 @@ include 'config.php';
     </div>
   </div>
 </div>
-                        
-                
-                
-                
-                   
-        
-    
-                   
-               
-              
             <!-- </div> -->
             </div>
             </div>
