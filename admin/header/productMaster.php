@@ -1,4 +1,10 @@
-<?php include('./header.php'); ?>
+<?php include('./header.php'); 
+
+
+
+
+
+?>
 
 <div class="card">
 	<div class="card-body">
@@ -10,6 +16,7 @@
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Product Name</label>
 				<input type="text" class="form-control" name="productname" id="productName">
+				
 			</div>
 			<div class="mb-3 ">
 				<label for="exampleInputEmail1" class="form-label">Brand Name</label>
@@ -81,31 +88,31 @@
 			// console.log("oo");
 
 			$.ajax({
-					url: "ajaxbackend.php",
-					type: "POST",
-					data: {
-						// data from file : data to file 
-						productName,
-						brandname,
-						openingstock,
-						availablestock,
-						purchaserate,
-						salesrate
-					},
-					success: function(data) {
-						console.log(data);
-						$('#myForm')[0].reset();
+				url: "ajaxbackend.php",
+				type: "POST",
+				data: {
+					// data from file : data to file 
+					productName,
+					brandname,
+					openingstock,
+					availablestock,
+					purchaserate,
+					salesrate
+				},
+				success: function(data) {
+					console.log(data);
+					$('#myForm')[0].reset();
 
-						// Show SweetAlert notification
-						Swal.fire({
-							title: 'Success',
-							text: 'Data inserted successfully!',
-							icon: 'success'
-						});
+					// Show SweetAlert notification
+					Swal.fire({
+						title: 'Success',
+						text: 'Data inserted successfully!',
+						icon: 'success'
+					});
 				},
 			});
+		}
 	}
-}
 
 	// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
 </script>

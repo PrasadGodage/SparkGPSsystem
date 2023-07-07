@@ -6,7 +6,7 @@
 		<hr>
 
 
-		<form action="" method="POST" enctype="multipart/form-data">
+		<form action="" method="POST" enctype="multipart/form-data" id="myForm">
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Client Name</label>
 				<input type="text" class="form-control" name="clientname" id="clientname">
@@ -51,16 +51,19 @@
 			</div>
 
 			<!-- <input class="btn btn-primary" name="upload" type="button" id="add" value="Add" ="additem()"></input> -->
-			<button type="button" onclick="additem()" class="btn btn-primary" >Add</button>
+			<button type="button" onclick="additem(event)" class="btn btn-primary">Add</button>
 		</form>
 	</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+	$(document).ready(function() {
+		// alert('hii');
+	});
 
-	
-	function additem() {
+	function additem(event) {
+		event.preventDefault();
 		// var itemname = $('#iname').val();
 		// var itemCode = $('#icode').val();
 		// var itemhsn = $('#ihsncode').val();
@@ -68,26 +71,35 @@
 		// var itemTaxId = $('#TaxGId').val();
 		// var itemPurRate = $('#PurRate').val();
 		// var itemSalesRate = $('#SalesRate').val();
-		var productName =  $('#productName').val(); 
-		var brandname =  $('#brandname').val(); 
-		var openingstock =  $('#openingstock').val(); 
-		var availablestock =  $('#availablestock').val(); 
-		var purchaserate =  $('#purchaserate').val(); 
-		var salesrate =  $('#salesrate').val(); 
+		var clientname =  $('#clientname').val(); 
+		var gstin =  $('#gstin').val(); 
+		var address =  $('#address').val(); 
+		var email =  $('#email').val(); 
+		var contact =  $('#contact').val(); 
+		var openingoutstanding =  $('#openingoutstanding').val(); 
+		var outstanding =  $('#outstanding').val(); 
+		var clienttype =  $('#clienttype').val(); 
+		var status =  $('#status').val();
 		
 
-		if (productName == "") {
-			alert('Please Enter Product Name');
-		} else if (brandname == 0) {
-			alert('Please Enter Brand Name');
-		} else if (openingstock == 0) {
-			alert('Please Enter Opening Stock');
-		} else if (availablestock == "") {
-			alert('Please Enter Available Stock');
-		} else if (purchaserate == "") {
-			alert('Please Enter Purchase Rate');
-		} else if (salesrate == "") {
-			alert('Please Enter Sales Rate');
+		if (clientname == "") {
+			alert('Please Enter Client Name');
+		} else if (gstin == 0) {
+			alert('Please Enter GST In');
+		} else if (address == 0) {
+			alert('Please Enter Address');
+		} else if (email == "") {
+			alert('Please Enter Email');
+		} else if (contact == "") {
+			alert('Please Enter Contact');
+		} else if (openingoutstanding == "") {
+			alert('Please Enter Opening Outstanding');
+		} else if (outstanding == "") {
+			alert('Please Enter Outstanding');
+		} else if (clienttype == "") {
+			alert('Please Enter Client Type');
+		} else if (status == "") {
+			alert('Please Enter Status');
 		} else {
 
 
@@ -98,16 +110,28 @@
 				type: "POST",
 				data: {
 					// data from file : data to file 
-					productName,
-					brandname,
-					openingstock,
-					availablestock,
-					purchaserate,
-					salesrate
+					clientname,
+					gstin,
+					address,
+					email,
+					contact,
+					openingoutstanding,
+					outstanding,
+					clienttype,
+					status
+
 				},
 				success: function(data) {
-					console.log(data);
-					if (data == "Inserted") {
+						console.log(data);
+						$('#myForm')[0].reset();
+
+						// Show SweetAlert notification
+						Swal.fire({
+							title: 'Success',
+							text: 'Client Data inserted successfully!',
+							icon: 'success'
+						});
+
 						// $('#iname').val("");
 						// $('#icode').val("");
 						// $('#ihsncode').val("");
@@ -115,21 +139,18 @@
 						// $('#TaxGId').val("0");
 						// $('#PurRate').val("");
 						// $('#SalesRate').val("");
-						$('#productName').val(); 
-						$('#brandname').val(); 
-						$('#openingstock').val(); 
-						$('#availablestock').val(); 
-						$('#purchaserate').val(); 
-						$('#salesrate').val();
-						getrecord();
-						message();
+						// $('#productName').val(); 
+						// $('#brandname').val(); 
+						// $('#openingstock').val(); 
+						// $('#availablestock').val(); 
+						// $('#purchaserate').val(); 
+						// $('#salesrate').val();
+						// getrecord();
+						// message();
 
-					}
-				},
+					},
 			});
-		}
-    }
-
-		// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
+	}
+}
 		
 </script>

@@ -1,4 +1,10 @@
-<?php include('./header.php'); ?>
+<?php include('./header.php');
+
+
+$query1 = "SELECT * FROM productmaster";
+$result1 = mysqli_query($con, $query1);
+
+?>
 
 <div class="card">
 	<div class="card-body">
@@ -14,7 +20,16 @@
 			</div>
 			<div class="mb-3">
 				<label class="form-label">Product Name</label>
-				<input type="text" class="form-control" placeholder="" name="productName" id="productName">
+				<!-- <input type="text" class="form-control" placeholder="" name="productName" id="productName"> -->
+				<select name="" id="productName" class="form-control">
+					<?php 
+				while($row = mysql_fetch_array($result) or die (mysql_error()))
+					{
+			?>
+					<option value="<?php echo $prdName; ?>"><?php echo $prdName; ?></option>
+
+					<?php } ?> 
+				</select>
 			</div>
 			<div class="mb-3 ">
 				<label for="exampleInputEmail1" class="form-label">IMEI Number</label>

@@ -6,10 +6,10 @@
 		<hr>
 
 
-		<form action="./add_Product_Backend.php" method="POST" enctype="multipart/form-data">
+		<form action="./add_Product_Backend.php" method="POST" enctype="multipart/form-data" id="myForm">
 			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label">Vender Name</label>
-				<input type="text" class="form-control" name="vendername" id="vendername">
+				<label for="exampleInputEmail1" class="form-label">Vendor Name</label>
+				<input type="text" class="form-control" name="vendorname" id="vendorname">
 
 			</div>
 			<div class="mb-3 ">
@@ -39,14 +39,21 @@
 				<input type="number" class="form-control" placeholder="" name="" id="contacttechnical">
 			</div>
 
-			<input class="btn btn-primary" name="upload" type="submit" id="add" value="Add"></input>
+			<!-- <input class="btn btn-primary" name="upload" type="submit" id="add" value="Add"></input> -->
+			<button type="button" onclick="additem(event)" class="btn btn-primary">Add</button>
 		</form>
 	</div>
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-	function additem() {
+	$(document).ready(function() {
+		// alert('hii');
+	});
+
+	function additem(event) {
+		event.preventDefault();
 		// var itemname = $('#iname').val();
 		// var itemCode = $('#icode').val();
 		// var itemhsn = $('#ihsncode').val();
@@ -55,7 +62,7 @@
 		// var itemPurRate = $('#PurRate').val();
 		// var itemSalesRate = $('#SalesRate').val();
 
-		var vendername = $('#vendername').val();
+		var vendorname = $('#vendorname').val();
 		var gstin = $('#gstin').val();
 		var address = $('#address').val();
 		var email = $('#email').val();
@@ -64,8 +71,8 @@
 		var contacttechnical = $('#contacttechnical').val();
 		
 
-		if (vendername == "") {
-			alert('Please Enter Vender Name');
+		if (vendorname == "") {
+			alert('Please Enter Vendor Name');
 		} else if (gstin == 0) {
 			alert('Please Select Unit From List');
 		} else if (address == 0) {
@@ -84,7 +91,7 @@
 			// console.log("oo");
 
 			$.ajax({
-				url: "itemBackend.php",
+				url: "ajaxbackend.php",
 				type: "POST",
 				data: {
 					// data from file : data to file 
@@ -96,18 +103,24 @@
 					// itemPurRate: itemPurRate,
 					// itemSalesRate: itemSalesRate
 
-					vendername,
+					vendorname,
 					gstin,
 					address,
 					email,
 					contactfirm,
 					contactsales,
 					contacttechnical
-
 				},
 				success: function(data) {
-					console.log(data);
-					if (data == "Inserted") {
+						console.log(data);
+						$('#myForm')[0].reset();
+
+						// Show SweetAlert notification
+						Swal.fire({
+							title: 'Success',
+							text: 'Vendor Data inserted successfully!',
+							icon: 'success'
+						});
 						// $('#iname').val("");
 						// $('#icode').val("");
 						// $('#ihsncode').val("");
@@ -116,30 +129,30 @@
 						// $('#PurRate').val("");
 						// $('#SalesRate').val("");
 
-						$('#vendername').val("");
-						$('#gstin').val("");
-						$('#address').val("");
-						$('#email').val("0");
-						$('#contactfirm').val("0");
-						$('#contactsales').val("");
-						$('#contacttechnical').val("");
-						getrecord();
-						message();
-					}
-				},
+						// $('#vendername').val("");
+						// $('#gstin').val("");
+						// $('#address').val("");
+						// $('#email').val("0");
+						// $('#contactfirm').val("0");
+						// $('#contactsales').val("");
+						// $('#contacttechnical').val("");
+						// getrecord();
+						// message();
+					},
 			});
-		}
+	}
+}
 
 
 		// alert(itemname+" "+itemCode+" "+itemhsn+" "+itemUname+" "+itemTaxId+" "+itemPurRate+" "+itemSalesRate);
-	}
+	// }
 
-	function message() {
-			Swal.fire(
-				'Good job!',
-				'You clicked the button!',
-				'success'
-				)
-		}
+	// function message() {
+	// 		Swal.fire(
+	// 			'Good job!',
+	// 			'You clicked the button!',
+	// 			'success'
+	// 			)
+	// 	}
 		
 </script>
