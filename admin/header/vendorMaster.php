@@ -13,7 +13,7 @@
 
 			</div>
 			<div class="mb-3 ">
-				<label for="exampleInputEmail1" class="form-label">GSTIn</label>
+				<label for="exampleInputEmail1" class="form-label">GST In</label>
 				<input type="text" class="form-control" name="" id="gstin">
 
 			</div>
@@ -39,7 +39,7 @@
 				<input type="number" class="form-control" placeholder="" name="" id="contacttechnical">
 			</div>
 
-			<!-- <input class="btn btn-primary" name="upload" type="submit" id="add" value="Add"></input> -->
+			<!-- <input class="btn btn-primary" name="upload" type="submit" id="add"="Add"></input> -->
 			<button type="button" onclick="additem(event)" class="btn btn-primary">Add</button>
 		</form>
 	</div>

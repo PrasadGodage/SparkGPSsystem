@@ -4,6 +4,9 @@
 $query1 = "SELECT * FROM productmaster";
 $result1 = mysqli_query($con, $query1);
 
+$query2 = "SELECT * FROM vendermaster";
+$result2 = mysqli_query($con, $query2);
+
 ?>
 
 <div class="card">
@@ -15,20 +18,29 @@ $result1 = mysqli_query($con, $query1);
 		<form action="" method="POST" enctype="multipart/form-data" id="myForm">
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Vendor Name</label>
-				<input type="text" class="form-control" id="vendorName" name="vendorName">
-
+				<!-- <input type="text" class="form-control" id="vendorName" name="vendorName"> -->
+				<select name="vendorName" id="vendorName" class="form-control">
+					<option value="">-- Select Vendor --</option>
+					<?php
+					while ($row = mysqli_fetch_array($result2)) {
+					?>
+						<option value="<?php echo ($row['vendername']); ?>"><?php echo ($row['vendername']); ?></option>
+					<?php } ?>
+				</select>
 			</div>
+
+
+
 			<div class="mb-3">
 				<label class="form-label">Product Name</label>
 				<!-- <input type="text" class="form-control" placeholder="" name="productName" id="productName"> -->
 				<select name="" id="productName" class="form-control">
-					<?php 
-				while($row = mysql_fetch_array($result) or die (mysql_error()))
-					{
-			?>
-					<option value="<?php echo $prdName; ?>"><?php echo $prdName; ?></option>
-
-					<?php } ?> 
+					<option value="">--Select Product--</option>
+					<?php
+					while ($row = mysqli_fetch_array($result1)) {
+					?>
+					<option value="<?php echo ($row['productname']); ?>"><?php echo ($row['productname']); ?></option>
+					<?php } ?>
 				</select>
 			</div>
 			<div class="mb-3 ">
@@ -45,6 +57,8 @@ $result1 = mysqli_query($con, $query1);
 				<label class="form-label">Sim No - 1</label>
 				<input type="number" class="form-control" placeholder="" id="simno1">
 			</div>
+
+
 			<div class="mb-3 ">
 				<label class="form-label">Sim No - 2</label>
 				<input type="number" class="form-control" placeholder="" id="simno2">
@@ -64,6 +78,7 @@ $result1 = mysqli_query($con, $query1);
 
 	function addPurchase(event) {
 		event.preventDefault();
+		
 		var vendorName = $('#vendorName').val();
 		var productName = $('#productName').val();
 		var imeiNumber = $('#imeiNumber').val();

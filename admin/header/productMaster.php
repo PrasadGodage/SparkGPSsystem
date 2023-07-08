@@ -1,23 +1,16 @@
-<?php include('./header.php'); 
-
-
-
-
-
-?>
+<?php include('./header.php'); ?>
 
 <div class="card">
 	<div class="card-body">
 		<h5 class="card-title fw-semibold mb-4 text-center text-primary">PRODUCT MASTER</h5>
 		<hr>
-
-
 		<form action="" method="POST" enctype="multipart/form-data" id="myForm">
+
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Product Name</label>
 				<input type="text" class="form-control" name="productname" id="productName">
-				
 			</div>
+				
 			<div class="mb-3 ">
 				<label for="exampleInputEmail1" class="form-label">Brand Name</label>
 				<input type="text" class="form-control" name="" id="brandname">
@@ -26,16 +19,18 @@
 			<div class="mb-3">
 				<label class="form-label">Opening Stock</label>
 				<input type="number" class="form-control" name="" id="openingstock">
-
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Available Stock</label>
 				<input type="number" class="form-control" placeholder="" id="availablestock">
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Purchase Rate</label>
 				<input type="number" class="form-control" placeholder="" id="purchaserate">
 			</div>
+
 			<div class="mb-3 ">
 				<label class="form-label">Sales Rate</label>
 				<input type="number" class="form-control" placeholder="" name="" id="salesrate">
