@@ -28,7 +28,7 @@ $result2 = mysqli_query($con, $query2);
 				<label class="form-label">Product Name</label>
 				<input type="text" class="form-control" placeholder="" name="productName" id="productName">
 			</div>
-			<div class="mb-3 ">
+			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">IMEI Number</label>
 				<input type="number" class="form-control" name="" id="imeiNumber">
 			</div>
@@ -38,13 +38,13 @@ $result2 = mysqli_query($con, $query2);
 				<input type="number" class="form-control" name="" id="serialNumber">
 			</div>
 
-			<div class="mb-3 ">
+			<div class="mb-3">
 				<label class="form-label">Sim No - 1</label>
 				<input type="number" class="form-control" placeholder="" id="simno1">
 			</div>
 
 
-			<div class="mb-3 ">
+			<div class="mb-3">
 				<label class="form-label">Sim No - 2</label>
 				<input type="number" class="form-control" placeholder="" id="simno2">
 			</div>
