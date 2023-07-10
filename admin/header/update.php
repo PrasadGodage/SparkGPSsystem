@@ -40,7 +40,6 @@ $data = mysqli_fetch_array($record);
 				<label for="exampleInputPassword1" class="form-label">Product Price</label>
 				<input type="number" class="form-control" placeholder="Rs." name="prd_price" value="<?php echo $data['prd_price']; ?>">
 			</div>
-
 			<input class="btn btn-primary" name="upload" type="submit" value="Update"></input>
 		</form>
 	</div>
