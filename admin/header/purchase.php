@@ -73,6 +73,26 @@ $result2 = mysqli_query($con, $query2);
 				<input type="number" class="form-control" placeholder="" id="simno2">
 			</div>
 		</div>
+		<div class="row">
+
+			<div class="mb-3 col-4">
+				<label class="form-label">Product Quantity</label>
+				<input type="number" class="form-control" placeholder="" id="quantity">
+			</div>
+
+
+			<div class="mb-3 col-4">
+				<label class="form-label">Product Amount</label>
+				<input type="number" class="form-control" placeholder="" id="amount">
+			</div>
+			<div class="mb-3 col-4">
+				<label class="form-label">Payment Type</label>
+				<select name="" id="" class="form-control">
+					<option value="cash">Cash</option>
+					<option value="cheque">Cheque</option>
+				</select>
+			</div>
+		</div>
 
 		<!-- <input class="btn btn-primary" name="upload" type="button" id="add" value="Add" ="additem()"></input> -->
 		<button type="submit" class="btn btn-primary" name="add">Add</button>
@@ -80,13 +100,116 @@ $result2 = mysqli_query($con, $query2);
 	</div>
 </div>
 
+<div class="card mt-3">
+	<div class="card-body">
+		<h5 class="card-title fw-semibold text-center text-primary">View Purchase</h5>
+	</div>
+	<div class="card-body" style="margin-top: -65px;">
+		<div class="table-responsive text-nowrap card-body">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Vendor Name</th>
+						<th>Product Name</th>
+						<th>IMEI Number</th>
+						<th>CCID Number</th>
+						<th>Sim 1</th>
+						<th>Sim 2</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+						<th>Payment Type</th>
+						<th>Action</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Vendor Name 1</th>
+						<th>Product Name 1</th>
+						<th>441863358333175</th>
+						<th>441863358333175</th>
+						<th>8989898989</th>
+						<th>8989898989</th>
+						<th>12</th>
+						<th>40000</th>
+						<th>Cash</th>
+						<th><button class="btn btn-warning btn-sm">Edit</button><button class="btn btn-danger btn-sm ml-2">x</button></th>
+					</tr>
+					<tr>
+						<th>Vendor Name 1</th>
+						<th>Product Name 1</th>
+						<th>441863358333175</th>
+						<th>441863358333175</th>
+						<th>8989898989</th>
+						<th>8989898989</th>
+						<th>12</th>
+						<th>40000</th>
+						<th>Cash</th>
+						<th><button class="btn btn-warning btn-sm">Edit</button><button class="btn btn-danger btn-sm ml-2">x</button></th>
+					</tr>
+					<tr>
+						<th>Vendor Name 1</th>
+						<th>Product Name 1</th>
+						<th>441863358333175</th>
+						<th>441863358333175</th>
+						<th>8989898989</th>
+						<th>8989898989</th>
+						<th>12</th>
+						<th>40000</th>
+						<th>Cash</th>
+						<th><button class="btn btn-warning btn-sm">Edit</button><button class="btn btn-danger btn-sm ml-2">x</button></th>
+					</tr>
+					<tr>
+						<th>Vendor Name 1</th>
+						<th>Product Name 1</th>
+						<th>441863358333175</th>
+						<th>441863358333175</th>
+						<th>8989898989</th>
+						<th>8989898989</th>
+						<th>12</th>
+						<th>40000</th>
+						<th>Cash</th>
+						<th><button class="btn btn-warning btn-sm">Edit</button><button class="btn btn-danger btn-sm ml-2">x</button></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+						
+					
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 	$(document).ready(function() {
-		// alert('hii');
+	// alert('hii');
 	});
 
-	function addPurchase(event) {
+	function addView Purchaset) {
 		event.preventDefault();
 
 		var vendorName = $('#VendorName').val();
