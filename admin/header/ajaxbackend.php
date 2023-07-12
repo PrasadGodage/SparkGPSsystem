@@ -19,7 +19,6 @@ if (isset($_POST['productName'])) {
 
 //insert Vender Master
 if (isset($_POST['vendername'])) {
-
 	$insertitem = "INSERT INTO `vendermaster`(`vendername`, `gstin `, `address`, `email`, `contactfirm`, `contactsales`,`contacttechnical `) VALUES ('$vendername','$gstin','$address','$email','$contactfirm','$contactsales','$contacttechnical')";
 	if (mysqli_query($con, $insertitem)) {
 		echo "Inserted"; {
@@ -27,6 +26,9 @@ if (isset($_POST['vendername'])) {
 		}
 	}
 }
+
+
+
 
 //insert Client Master
 // if (isset($_POST['productName'])) {
@@ -40,18 +42,28 @@ if (isset($_POST['vendername'])) {
 // }
 
 
+
+
+
+
 if (isset($_POST['productName'])) {
+	
 
 	$date = date("Y-m-d");
+	$vendorName = $_POST['vendorName'];
+	
+	
 	$insertitem = "INSERT INTO `purchasemaster` (`prdName`, `vendorName`,`purchaseDate` , `imeiNo`, `uidNo`, `sim1no`, `sim2no`) VALUES ('$productName','$vendorName', '$date' ,'$imeiNumber','$serialNumber','$simno1', '$simno2')";
 	if (mysqli_query($con, $insertitem)) {
+		$last_id = mysqli_insert_id($con);
+		$insertStock = "INSERT INTO `inventorystk`( `ProductId`, `IMEINo`, `CCIDNo`, `Sim1No`, `Sim2No`, `StkStatus`,`VendorId`, `PurchaseId`) VALUES ('$productName','$imeiNumber','$serialNumber','$simno1','$simno2','purchase','$vendorName'','$last_id')";
+
+		mysqli_query($con,$insertStock);
 		echo "Inserted";
 	} else {
 		echo "Error";
 	}
 }
-
-
 
 
 if (isset($_POST['vendorname'])) {
@@ -75,3 +87,5 @@ if (isset($_POST['clientname'])) {
 		}
 	}
 }
+
+

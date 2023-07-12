@@ -37,7 +37,6 @@ include 'config.php';
     />
 
     <title>SPARKS Web Admin</title>
-
     <meta name="description" content="" />
 
     <!-- Favicon -->
@@ -98,7 +97,7 @@ include 'config.php';
 
           <ul class="menu-inner py-1">
             
-            <li class="menu-item active">
+            <li class="menu-item">
               <a href="dashboard.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
@@ -115,7 +114,7 @@ include 'config.php';
 
             <!-- Extended components -->
             <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link menu-toggle">
+              <a href="javascript:void(0)" class="menu-link menu-toggle active">
                 <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Extended UI">Masters</div>
               </a>
@@ -188,39 +187,27 @@ include 'config.php';
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-12">
                         <div class="d-flex card-body justify-content-between align-items-center">
-
-
                         <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
               <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                 <i class="bx bx-menu bx-sm"></i>
               </a>
             </div>
 
-                          <h4 > Welcome 
+            <h4 > Welcome 
                             <!-- <strong class="text-primary"><?php echo $_SESSION['adminName']; ?></strong>  -->
                             <!-- as a Admin</h4> -->
                             Admin</h4>
-
-
-                          
                           <div class="dropdown" style="margin-right: 24px;">
                           <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
                             Profile
                           </button>
-                          
                           <div class="dropdown-menu">
-  
                         
                         
                             <!-- Button to trigger the modal -->
 <button type="button" class="dropdown-item" data-toggle="modal" data-target="#changePasswordModal">
   Change Password
 </button>
-
-
-
-
-
 
 <!-- <button class="dropdown-item" type="button"></button> -->
 <button class="dropdown-item" type="button"><a href="./logout.php">Logout</a></button>
@@ -264,9 +251,9 @@ include 'config.php';
   </div>
 </div>
             <!-- </div> -->
-            </div>
-            </div>
-            </div>
+</div>
+</div>
+</div>
             
 
     

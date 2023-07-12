@@ -99,8 +99,7 @@
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    
+                    <label class="form-label" for="password">Password</label> 
                   </div>
                   <div class="input-group input-group-merge">
                     <input
@@ -121,19 +120,11 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
               </form>
-			
-              
-            </div>
+			      </div>
           </div>
-         
         </div>
       </div>
     </div>
-
-    
-
-    
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>

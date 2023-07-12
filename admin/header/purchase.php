@@ -15,42 +15,67 @@ $result2 = mysqli_query($con, $query2);
 		<hr>
 
 
-		<form action="" method="POST" enctype="multipart/form-data" id="myForm">
-			<div class="mb-3">
+
+		<div class="row">
+			<div class="mb-3 col-6">
 				<label for="exampleInputEmail1" class="form-label">Vendor Name</label>
-				<input type="text" class="form-control" id="vendorName" name="vendorName">
-				
+				<!-- <input type="text" class="form-control" id="vendorName" name="vendorName">		 -->
+
+				<select name="vendorName" class="form-control">
+					<option value="">----- Select Vendor -----</option>
+					<?php
+					while ($row = mysqli_fetch_array($result2)) {
+					?>
+						<option value="<?php echo ($row['venderid']); ?>"><?php echo ($row['vendername']); ?></option>
+					<?php } ?>
+				</select>
 			</div>
+			<div class="mb-3 col-6">
 
-
-
-			<div class="mb-3">
 				<label class="form-label">Product Name</label>
-				<input type="text" class="form-control" placeholder="" name="productName" id="productName">
+				<!-- <input type="text" class="form-control" placeholder="" name="productName" id="productName"> -->
+				<select name="productName" class="form-control">
+					<option value="">----- Select Product -----</option>
+					<?php
+					while ($row = mysqli_fetch_array($result1)) {
+					?>
+						<option value="<?php echo ($row['productid']); ?>"><?php echo ($row['productname']); ?></option>
+						<form action="ajaxbackend.php" method="POST" id="myForm">
+						<?php } ?>
+				</select>
+
 			</div>
-			<div class="mb-3">
+		</div>
+
+		<div class="row">
+
+			<div class="mb-3 col-6">
 				<label for="exampleInputEmail1" class="form-label">IMEI Number</label>
 				<input type="number" class="form-control" name="" id="imeiNumber">
 			</div>
 
-			<div class="mb-3">
+			<div class="mb-3 col-6">
 				<label class="form-label">Serial / CCID Number</label>
 				<input type="number" class="form-control" name="" id="serialNumber">
 			</div>
+		</div>
 
-			<div class="mb-3">
+		<div class="row">
+
+			<div class="mb-3 col-6">
 				<label class="form-label">Sim No - 1</label>
 				<input type="number" class="form-control" placeholder="" id="simno1">
 			</div>
 
 
-			<div class="mb-3">
+			<div class="mb-3 col-6">
 				<label class="form-label">Sim No - 2</label>
 				<input type="number" class="form-control" placeholder="" id="simno2">
 			</div>
+		</div>
 
-			<!-- <input class="btn btn-primary" name="upload" type="button" id="add" value="Add" ="additem()"></input> -->
-			<button type="button" onclick="addPurchase(event)" class="btn btn-primary">Add</button>
+		<!-- <input class="btn btn-primary" name="upload" type="button" id="add" value="Add" ="additem()"></input> -->
+		<button type="submit" class="btn btn-primary" name="add">Add</button>
 		</form>
 	</div>
 </div>
@@ -63,8 +88,8 @@ $result2 = mysqli_query($con, $query2);
 
 	function addPurchase(event) {
 		event.preventDefault();
-		
-		var vendorName = $('#vendorName').val();
+
+		var vendorName = $('#VendorName').val();
 		var productName = $('#productName').val();
 		var imeiNumber = $('#imeiNumber').val();
 		var serialNumber = $('#serialNumber').val();

@@ -6,15 +6,12 @@ $id = $_GET['id'];
 
 $record = mysqli_query($con, "SELECT * FROM `product` WHERE `id` = $id ");
 $data = mysqli_fetch_array($record);
-
 ?>
 
 <div class="card">
 	<div class="card-body">
 		<h5 class="card-title fw-semibold mb-4 text-center">UPDATE PRODUCT OF ID <strong class="text-primary"><?php echo $id ?></strong> AND NAME <strong class="text-primary"><?php echo $data['prd_name']; ?></strong></h5>
 		<hr>
-
-
 		<form action="./update1.php" method="POST" enctype="multipart/form-data">
 			<div class="mb-3">
 				<label for="exampleInputEmail1" class="form-label">Product ID</label>
