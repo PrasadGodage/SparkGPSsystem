@@ -11,7 +11,6 @@ include('config.php');
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-
 					<th class="text-primary"> <strong>ID</strong> </th>
 					<th class="text-primary"> <strong>Product Name</strong> </th>
 					<th class="text-primary" style="width: 120px"> <strong>Product Link</strong> </th>
@@ -19,21 +18,12 @@ include('config.php');
 					<th class="text-primary"> <strong>Product Price</strong> </th>
 					<th class="text-primary"> <strong>Update</strong> </th>
 					<th class="text-primary"> <strong>Delete</strong> </th>
-
-
-
-
-
-
 				</tr>
 			</thead>
 			<tbody class="table-border-bottom-0">
 				<?php
 
 				$selectnewusers = "SELECT * FROM `product`";
-
-
-
 				// perform query against database in php
 				$result = mysqli_query($con, $selectnewusers);
 
