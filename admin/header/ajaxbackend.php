@@ -91,4 +91,54 @@ if (isset($_POST['clientname'])) {
 
 
 
+// ======================== INSERT DATA FOR STOCK AND PURCHASE ======================  
 
+
+
+
+if (isset($_POST['data'])) {
+	echo "<script>
+	console.log('There are no fields to generate a report');
+	</script>";
+
+// Retrieve the data from the AJAX request
+$jsonData = $_POST['data'];
+
+// Parse the JSON data into a PHP array
+$data = json_decode($jsonData, true);
+
+
+
+
+
+
+// Insert the data into the database
+foreach ($data as $item) {
+// VenodrName
+  $vemdorName = $item['selectInput']; // Replace 'field1' with your actual 
+  $productName = $item['productname']; // Replace 'field2' with your actual 
+  $serialNumber = $item['serialNumber'];
+  $simno1 = $item['simno1'];
+  $simno2 = $item['simno2'];
+  $activationdate = $item['activationdate'];
+  $imeiNumber = $item['imeiNumber'];
+  $todayDate = date("Y-m-d");
+
+  $sql = "INSERT INTO `purchasemaster`( `purchaseDate`,`vendorName`, `productName`, `IMELNo`, `serial/CCIDNo`, `sim1No`, `sim2No`, `activationDate`) VALUES ('$todayDate','$vendorName','$productName','$imeiNumber','$serialNumber','$simno1','$simno2','$activationdate'))";
+
+  echo $sql;
+
+  $res = mysqli_query($con,$sql);
+  if ($res != true) {
+    echo 'Error inserting data: ';
+  } else {
+	echo "<script>
+	alert('There are no fields to generate a report');
+	</script>";
+	// window.location.href='admin/ahm/panel';
+  }
+}
+
+
+
+}

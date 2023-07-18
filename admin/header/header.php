@@ -148,7 +148,7 @@ include 'config.php';
             
             <ul class="menu-sub">
             <li class="menu-item">
-              <a href="sales.php" class="menu-link">
+              <a href="vendorMaster.php" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-line-chart"></i>
                 <div data-i18n="Extended UI">Sales</div>
               </a>
