@@ -326,7 +326,7 @@ function insertData() {
 }
 </script>
 
-<script>
+<!-- <script>
 $(document).ready(function() {
     $('#selectInput').change(function() {
         var selectedId = $(this).val();
@@ -351,7 +351,7 @@ $(document).ready(function() {
         }
     });
 });
-</script>
+</script> -->
 
 
 <script>
