@@ -1,0 +1,35 @@
+<select id="dropdown1">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+</select>
+
+<select id="dropdown2">
+  <!-- Options will be populated dynamically using jQuery -->
+</select>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Event listener for the first dropdown
+    $("#dropdown1").on("change", function() {
+      var selectedOption = $(this).val();
+
+      // Perform some logic to determine the options for the second dropdown
+      var optionsForDropdown2 = [];
+      if (selectedOption === "option1") {
+        optionsForDropdown2 = ["Option A", "Option B", "Option C"];
+      } else if (selectedOption === "option2") {
+        optionsForDropdown2 = ["Option X", "Option Y", "Option Z"];
+      }
+
+      // Clear existing options from the second dropdown
+      $("#dropdown2").empty();
+
+      // Add new options to the second dropdown
+      $.each(optionsForDropdown2, function(index, option) {
+        $("#dropdown2").append("<option value='" + option + "'>" + option + "</option>");
+      });
+    });
+  });
+</script>
