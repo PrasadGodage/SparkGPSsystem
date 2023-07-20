@@ -1,29 +1,56 @@
 <?php
+// Assuming you have a MySQL database setup and connection details
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "sparks";
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+// $servername = "localhost";
+// $username = "u311423116_sparks";
+// $password = "Sparks@2023";
+// $dbname = "u311423116_sparks";
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+// Create a connection to MySQL
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$id = $_POST['id'];
+// Retrieve the data from the POST request
+$data = $_POST['data'];
 
-$sql = "SELECT * FROM productmaster WHERE `productid` = $id";
-$result = mysqli_query($conn, $sql);
-
-if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    $values = array(
-        'input1' => $row['productname'],
-        'input2' => $row['productid']
-    );
-
-    echo json_encode($values);
+// Insert each row into the MySQL database
+foreach ($data as $row) {
+    $clientName = $row['selectInput']; 
+    $productName = $row['category'];  
+    $serialNumber = $row['serialNumber'];
+    $simno1 = $row['simno1'];
+    $simno2 = $row['simno2'];
+    $activationdate = $row['activationdate'];
+    $imeiNo = $row['subcategory'];
+    $todayDate = date("Y-m-d");
+    $productId = $row['productId'];
+    $clientId = $row['clientId'];
+   
+    // $sql = "INSERT INTO `salesmaster`( `purchaseDate`, `vendorName`,`vendorId`, `productId`, `productName`, `IMELNo`, `serial/CCIDNo`, `sim1No`, `sim2No`, `activationDate`)
+    // VALUES ('$todayDate','$vendorName', '$vendorId' , '$productId' , '$productName','$imeiNumber','$serialNumber','$simno1','$simno2','$activationdate')";
+    $sql = "INSERT INTO `salesmaster`(`SalesDate`, `ClientId`, `productId`) VALUES ('$todayDate','$clientId','$productId')";
+    
+    if ($conn->query($sql) === FALSE) {
+        echo "Error inserting data: " . $conn->error;
+        break;
+        
+    } else {
+        $last_id = $conn->insert_id;
+        $sql1 = "INSERT INTO `salesdetails`(`SalesId`, `itemId`) VALUES ('$last_id','$productId')";
+        $conn->query($sql1);
+    }
 }
 
-mysqli_close($conn);
+// Close the MySQL connection
+$conn->close();
+
+echo "Data inserted successfully!";
 ?>

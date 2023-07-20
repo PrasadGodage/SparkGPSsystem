@@ -18,6 +18,20 @@ $result3 = mysqli_query($con, $query3);
 	  <hr>
 
 	  <form action="" id="myForm">
+      
+      <div class="row">
+            <div class="mb-2 col-6 col-md-9 col-lg-9 col-xs-9 input-group-sm"></div>
+
+                    <div class="mb-2 col-6 col-md-2 col-lg-2 col-xs-2 input-group-sm shadow p-2">					
+						<label for="date" class="form-label" style="text-align:right;">Date :</label>		
+                        <input type="date" class="form-control" name="date" id="date">
+
+                        <!-- <label for="date">Date :</label>
+                        <input type="date" id="date" name="date"> -->
+                    </div>
+                    <div class="mb-2 col-6 col-md-1 col-lg-1 col-xs-1 input-group-sm"></div>
+       </div>
+
 			<div class="row">
 				
 				<div class="mb-2 col-6 col-md-4 col-lg-4 col-xs-4 input-group-sm">
@@ -36,26 +50,26 @@ $result3 = mysqli_query($con, $query3);
 
 					<div class="mb-2 col-6 col-md-4 col-lg-4 col-xs-4 input-group-sm">
 						<label for="exampleInputEmail1" class="form-label">Address :</label>
-						<input type="text" class="form-control" id="address" name="address">				
+						<input type="text" class="form-control" id="address" name="address" readonly>				
 					</div>
 
 					<div class="mb-2 col-6 col-md-2 col-lg-2 col-xs-2 input-group-sm">					
 						<label class="form-label" style="text-align:right;">Contact :</label>
-						<input type="number" class="form-control" name="" id="contact">							
+						<input type="number" class="form-control" name="" id="contact" readonly>							
 					</div>
 
-					<div class="mb-2 col-6 col-md-2 col-lg-2 col-xs-2 input-group-sm">					
+					<!-- <div class="mb-2 col-6 col-md-2 col-lg-2 col-xs-2 input-group-sm">					
 						<label class="form-label" style="text-align:right;">Date :</label>
 						<input type="date" class="form-control" name="date" id="date"> 				
-					</div>
+					</div> -->
 
 				</div>
 			</div>
     <!-- </div> -->
  <!-- </div> -->
 
-			<div class="card shadow p-2">
-				<div class="card-body shadow">
+			<div class="card shadow mb-4 p-2">
+				<div class="card-body">
 					<!-- <h5 class="card-title fw-semibold mb-4 text-center text-primary">Sales Form</h5> -->
 					<!-- <hr> -->
 
@@ -78,14 +92,14 @@ $result3 = mysqli_query($con, $query3);
 
 							<label for="exampleInputEmail1" class="form-label">IMEI Number</label>
 							<!-- <input type="number" class="form-control" name="" id="imeiNo" readonly> -->
-							<select id="subcategory" name="subcategory">
+							<select id="subcategory" name="subcategory" readonly>
 							<!-- <option value="">----- Select Product -----</option> -->
 							</select>
 						</div>
 					
-						<div class="mb-2 col-6 col-md-3 col-lg-3 col-xs-3 input-group-sm">					
+						<div class="mb-2 col-4 col-md-2 col-lg-2 col-xs-2 input-group-sm">					
 							<label class="form-label" style="text-align:right;">Activated Date :</label>
-							<input type="date" class="form-control" name="salesDate" id="salesDate">							
+							<input type="date" class="form-control" name="salesDate" id="salesDate" readonly>							
 						</div>
 					</div>			
 
@@ -93,19 +107,19 @@ $result3 = mysqli_query($con, $query3);
 
 						<div class="mb-2 col-6 col-md-3 col-lg-3 col-xs-3 input-group-sm">
 							<label class="form-label">Serial / CCID Number</label>
-							<input type="number" class="form-control" name="" id="serialNumber">
+							<input type="number" class="form-control" name="" id="serialNumber" readonly>
 						</div>
 
 						<div class="mb-2 col-6 col-md-3 col-lg-3 col-xs-3 input-group-sm">
 							<label class="form-label">Sim No - 1</label>
-							<input type="number" class="form-control" placeholder="" id="simno1">
+							<input type="number" class="form-control" placeholder="" id="simno1" readonly>
 						</div>
 
 						<!-- <div class="mb-3 col-2"></div> -->
 
 						<div class="mb-2 col-6 col-md-3 col-lg-3 col-xs-3 input-group-sm">
 							<label class="form-label">Sim No - 2</label>
-							<input type="number" class="form-control" placeholder="" id="simno2">
+							<input type="number" class="form-control" placeholder="" id="simno2" readonly>
 						</div>
 
 						<div class="mb-2 col-2 col-md-1 col-lg-1 col-xs-1 mt-4 input-group-sm">
@@ -361,36 +375,36 @@ $(document).ready(function() {
         e.preventDefault();
 
         // Get form values
-        var selectInput = $('#selectInput option:selected').text().trim();
+        var clientName = $('#selectInput option:selected').text().trim();
         var clientId = $('#selectInput').val();
         // $("#yourdropdownid option:selected").text();
         // var input1 = $('#input1 option:selected').text();
         var contact = $('#contact').val();
-        var category = $('#category option:selected').text().trim();
+        var productName = $('#category option:selected').text().trim();
         var productId = $('#category').val();
-        var subcategory = $('#subcategory').val();
+        var imeiNo = $('#subcategory').val();
         var serialNumber = $('#serialNumber').val();
         var simno1 = $('#simno1').val();
         var simno2 = $('#simno2').val();
 
-        var salesDate = $('#salesDate').val();
+        var activationdate = $('#salesDate').val();
         var num = 1;
 
         console.log(selectInput);
         // Create an object to store the form data
         var formData = {
             num,
-            selectInput,
+            ClientName,
             clientId,
             productId,
             // input1,
             contact,
-            category,
-            subcategory,
+            productName,
+            imeiNo,
             serialNumber,
             simno1,
             simno2,
-            salesDate
+            activationdate
         };
 
         // Get existing data from local storage or initialize an empty array
