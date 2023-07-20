@@ -88,7 +88,22 @@ if (isset($_POST['clientname'])) {
 	}
 }
 
+// show data on table -------------------
 
+if (isset($_POST['add_button'])) {
+    // Retrieve form field data
+    $productName = $_POST['product_name'];
+    $imeiNumber = $_POST['IMEINo'];
+
+    // Query to insert data into the table
+    $query = "INSERT INTO salesmaster (clientName, productName, IMEINo, activationDate, serialNumber, simno1, simno2) VALUES ('$clientName', '$productName', '$imeiNumber', '$activationDate', '$serialNumber', '$simno1', '$simno2')";
+
+    if (mysqli_query($conn, $query)) {
+        echo "Data added successfully.";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
 
 
 // ======================== INSERT DATA FOR STOCK AND PURCHASE ======================  
